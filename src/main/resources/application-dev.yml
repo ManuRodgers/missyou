@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:8889/sleeve?autoConnect=true&characterEncoding=utf-8&useSSL=false&serverTimezone=${user.timezone}
+    hikari:
+      maximum-pool-size: 8
+      minimum-idle: 4
+      idle-timeout: 30000
+      connection-timeout: 30000
+      max-lifetime: 45000
+      auto-commit: true
+      pool-name: july
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+
+

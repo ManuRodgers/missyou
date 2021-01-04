@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: dev
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    open-in-view: false
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: true
+missyou:
+  api-package: com.isw.missyou.api
+
+
+
+
+
+
+
+

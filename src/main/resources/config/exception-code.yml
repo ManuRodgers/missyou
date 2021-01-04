@@ -1,0 +1,5 @@
+manu:
+  codes:
+    10000: 通用异常
+    10001: This is an error
+    30005: Banner class resource exception

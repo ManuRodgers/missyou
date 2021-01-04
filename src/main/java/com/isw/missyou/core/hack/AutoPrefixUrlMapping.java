@@ -1,0 +1,28 @@
+package com.isw.missyou.core.hack;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+
+import java.lang.reflect.Method;
+
+public class AutoPrefixUrlMapping extends RequestMappingHandlerMapping {
+  @Value("${missyou.api-package}")
+  private String apiPackagePath;
+
+  @Override
+  protected RequestMappingInfo getMappingForMethod(Method method, Class<?> handlerType) {
+    RequestMappingInfo requestMappingInfo = super.getMappingForMethod(method, handlerType);
+    if (requestMappingInfo != null) {
+      String prefix = getPrefix(handlerType);
+      return RequestMappingInfo.paths(prefix).build().combine(requestMappingInfo);
+    }
+    return null;
+  }
+
+  private String getPrefix(Class<?> handlerType) {
+    String packageName = handlerType.getPackage().getName();
+    String dotPath = packageName.replaceAll(apiPackagePath, "");
+    return dotPath.replaceAll("\\.", "/");
+  }
+}
