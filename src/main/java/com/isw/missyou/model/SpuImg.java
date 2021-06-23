@@ -3,7 +3,10 @@ package com.isw.missyou.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -11,15 +14,12 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-public class BannerItem extends BaseEntity {
-
+public class SpuImg extends BaseEntity {
   private String img;
-  private String keyword;
-  private short type;
-  private String name;
+  //  private Long spuId;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "banner_id")
+  @JoinColumn(name = "spu_id")
   @JsonIgnore
-  private Banner banner;
+  private Spu spu;
 }

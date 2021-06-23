@@ -1,5 +1,7 @@
 manu:
   codes:
+    9999: 服务器未知异常
     10000: 通用异常
     10001: This is an error
+    30003: Not found spu details
     30005: Banner class resource exception

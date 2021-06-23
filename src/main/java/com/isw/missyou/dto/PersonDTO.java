@@ -1,6 +1,6 @@
 package com.isw.missyou.dto;
 
-import com.isw.missyou.validators.PasswordEqual;
+import com.isw.missyou.dto.validators.PasswordEqual;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

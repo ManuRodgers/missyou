@@ -10,6 +10,7 @@ public interface BannerRepository extends JpaRepository<Banner, Long> {
 
   Banner findOneById(Long id);
 
-  @EntityGraph(value = "Banner.items")
+  //  attributePaths is the convenient way to specify @NamedEntityGraph()
+    @EntityGraph(attributePaths = {"items"})
   Banner findOneByName(String name);
 }
